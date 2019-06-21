@@ -1,8 +1,11 @@
 #!/bin/bash
+cd /var/www/html
 echo Please enter the name of your project
 read projname
 composer create-project drupal-composer/drupal-project:8.x-dev $projname --stability dev --no-interaction
-cp /var/www/html/spinup/.lando.yml /var/www/html/$projname
 cd $projname
-sed -i "1s/.*/name: $projname/" .lando.yml
-echo $projname has been created. You can now run lando start to start your local environment.
+git clone git@itsdevrepo.eastus.cloudapp.azure.com:wcrum/wat-faults.git
+cp wat-faults/d8.lando.yml ./.lando.yml
+sed -i "s/<project name>/$projname/g" .lando.yml
+echo -e '\n#Ignore .lando.yml \n.lando.yml' >> .gitignore
+rm -Rf wat-faults
