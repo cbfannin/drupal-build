@@ -8,6 +8,7 @@ cd ${projpath}
 echo "${blue}${white}What is the name of your project?${reset}"
 read projname
 echo "${blue}${white}Creating ${reset}${green}${white}${projname} ${reset}${blue}${white}Drupal 8 Composer project.${reset}"
+echo "${blue}${white}Take a coffee break, this is going to take several minutes.${reset}"
 composer create-project drupal-composer/drupal-project:8.x-dev ${projname} --stability dev --no-interaction
 cd ${projname}
 echo -e "\n${blue}${white}Cloning .lando.yml defaults and prepping for lando start.${reset}"
@@ -43,5 +44,20 @@ lando drush en devel -y
 lando drush en devel_generate -y
 lando drush en kint -y
 lando drush en webprofiler -y
+echo -e "\n${blue}${white}Installing Radix and subtheming${reset}"
+sed -i 's+"drush/drush": "^9.0.0"+"drush/drush": "^8.0.0"+g' composer.json
+composer update 
+composer require drupal/radix
+lando drush en components radix -y
+subtheme="${projname}_subtheme"
+lando drush radix "${subtheme}"
+lando drush en ${subtheme} -y; lando drush config-set system.theme default ${subtheme} -y
+cd ${projpath}/${projname}/web/themes/${subtheme}; lando npm install
+sed -i 's+http://drupal.local+http://'${projname}'.lndo.site+g' webpack.mix.js
+cd ${projpath}/${projname}
+sed -i 's+"drush/drush": "^8.0.0"+"drush/drush": "^9.0.0"+g' composer.json
+composer update 
+lando drush cr
 echo -e "\n${blue}${white}Finally done!${reset}"
 echo -e "${blue}${white}Site Login Information:${reset}\nlog in url: ${green}http://${projname}.lndo.site/user${reset}\nusername: ${green}superadmin${reset}\npassword: ${green}admin${reset}"
+echo -e "IMPORTANT! If you intend to do any theming, don't forget to run lando npm run watch in /web/themes/$subtheme in a separate terminal"
