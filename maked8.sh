@@ -38,7 +38,7 @@ echo -e "\n${blue}${white}\n\nDownloading common modules ...\n${reset}"
 lando composer require drupal/admin_toolbar
 lando composer require drupal/module_filter
 lando composer require drupal/devel
-echo -e "\n${blue}${white}\n\nInstalling common modules ...\n${reset}"
+echo -e "\n${blue}${white}\n\nEnabling common modules ...\n${reset}"
 lando drush en admin_toolbar -y
 lando drush en admin_toolbar_tools -y
 lando drush en module_filter -y
@@ -63,6 +63,6 @@ cd ${projpath}/${projname}
 sed -i 's+"drush/drush": "^8.0.0"+"drush/drush": "^9.0.0"+g' composer.json
 composer update 
 lando drush cr
-echo -e "\n${blue}${white}\n\nFinally done!\nSite Login Information:\n\n${reset}"
+echo -e "\n${blue}${white}Finally done!\nSite Login Information:${reset}"
 echo -e "log in url: ${green}http://${projname}.lndo.site/user${reset}\nusername: ${green}superadmin${reset}\npassword: ${green}admin${reset}"
-echo -e "${red}${white}\n\nIMPORTANT! If you intend to do any theming, don't forget to run lando npm run watch in /web/themes/$subtheme in a separate terminal.\n\n${reset}"
+echo -e "${red}${white}\nIMPORTANT! If you intend to do any theming, don't forget to run lando npm run watch in /web/themes/$subtheme in a separate terminal.\n${reset}"
