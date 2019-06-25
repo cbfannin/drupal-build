@@ -1,5 +1,6 @@
 #!/bin/bash
 projpath=/var/www/html
+red="$(tput setaf 1)"
 green="$(tput setaf 2)"
 blue="$(tput setaf 4)"
 white="$(tput setab 7)"
@@ -11,16 +12,16 @@ echo "${blue}${white}Creating ${reset}${green}${white}${projname} ${reset}${blue
 echo "${blue}${white}Take a coffee break, this is going to take several minutes.${reset}"
 composer create-project drupal-composer/drupal-project:8.x-dev ${projname} --stability dev --no-interaction
 cd ${projname}
-echo -e "\n${blue}${white}Cloning .lando.yml defaults and prepping for lando start.${reset}"
+echo -e "\n${blue}${white}\n\nCloning .lando.yml defaults and prepping for lando start.\n\n${reset}"
 git clone git@itsdevrepo.eastus.cloudapp.azure.com:wcrum/wat-faults.git
 cp wat-faults/d8.lando.yml ./.lando.yml
 sed -i "s/<project name>/${projname}/g" .lando.yml
 echo -e "\n#Ignore .lando.yml \n.lando.yml" >> .gitignore
-echo -e "${blue}${white}Cleaning up left over files from clone.${reset}\n"
+echo -e "${blue}${white}\n\nCleaning up left over files from clone.\n\n${reset}\n"
 rm -Rf wat-faults
-echo -e "\n${blue}${white}Running lando start command ...${reset}"
+echo -e "\n${blue}${white}\n\nRunning lando start command ...\n\n${reset}"
 lando start
-echo -e "\n${blue}${white}Performing Site Install ...${reset}"
+echo -e "\n${blue}${white}\n\nPerforming Site Install ...\n\n${reset}"
 lando drupal si --force -n standard  \
 --langcode="en"  \
 --db-type="mysql"  \
@@ -33,11 +34,11 @@ lando drupal si --force -n standard  \
 --account-name="superadmin"  \
 --account-mail="admin@example.com"  \
 --account-pass="admin"
-echo -e "\n${blue}${white}Downloading common modules ...${reset}"
+echo -e "\n${blue}${white}\n\nDownloading common modules ...\n\n${reset}"
 lando composer require drupal/admin_toolbar
 lando composer require drupal/module_filter
 lando composer require drupal/devel
-echo -e "\n${blue}${white}Installing common modules ... ${reset}"
+echo -e "\n${blue}${white}\n\nInstalling common modules ...\n\n${reset}"
 lando drush en admin_toolbar -y
 lando drush en admin_toolbar_tools -y
 lando drush en module_filter -y
@@ -45,7 +46,7 @@ lando drush en devel -y
 lando drush en devel_generate -y
 lando drush en kint -y
 lando drush en webprofiler -y
-echo -e "\n${blue}${white}Installing Radix and subtheming ...${reset}"
+echo -e "\n${blue}${white}\n\nInstalling Radix and subtheming ...\n\n${reset}"
 sed -i 's+"drush/drush": "^9.0.0"+"drush/drush": "^8.0.0"+g' composer.json
 composer update 
 composer require drupal/radix
@@ -55,7 +56,7 @@ lando drush radix "${subtheme}"
 lando drush en ${subtheme} -y; lando drush config-set system.theme default ${subtheme} -y
 cd ${projpath}/${projname}/web/themes/${subtheme}; lando npm install 
 sed -i 's+http://drupal.local+http://'${projname}'.lndo.site+g' webpack.mix.js
-echo -e "${blue}${white}Performing automatic audit fix ...${reset}"
+echo -e "\n${blue}${white}\n\nPerforming automatic audit fix ...\n\n${reset}"
 lando npm audit fix
 lando npm run dev
 cd ${projpath}/${projname}
@@ -64,4 +65,4 @@ composer update
 lando drush cr
 echo -e "\n${blue}${white}Finally done!${reset}"
 echo -e "${blue}${white}Site Login Information:${reset}\nlog in url: ${green}http://${projname}.lndo.site/user${reset}\nusername: ${green}superadmin${reset}\npassword: ${green}admin${reset}"
-echo -e "IMPORTANT! If you intend to do any theming, don't forget to run lando npm run watch in /web/themes/$subtheme in a separate terminal"
+echo -e "\n${red}${white}\n\nIMPORTANT! If you intend to do any theming, don't forget to run lando npm run watch in /web/themes/$subtheme in a separate terminal.\n\n${reset}"
