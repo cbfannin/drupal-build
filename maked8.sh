@@ -54,6 +54,7 @@ lando drush radix "${subtheme}"
 lando drush en ${subtheme} -y; lando drush config-set system.theme default ${subtheme} -y
 cd ${projpath}/${projname}/web/themes/${subtheme}; lando npm install
 sed -i 's+http://drupal.local+http://'${projname}'.lndo.site+g' webpack.mix.js
+lando npm audit fix
 cd ${projpath}/${projname}
 sed -i 's+"drush/drush": "^8.0.0"+"drush/drush": "^9.0.0"+g' composer.json
 composer update 
