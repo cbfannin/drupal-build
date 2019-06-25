@@ -38,6 +38,7 @@ lando composer require drupal/admin_toolbar
 lando composer require drupal/module_filter
 lando composer require drupal/devel
 echo -e "\n${blue}${white}Installing common modules ... ${reset}"
+lando drush en admin_toolbar -y
 lando drush en admin_toolbar_tools -y
 lando drush en module_filter -y
 lando drush en devel -y
