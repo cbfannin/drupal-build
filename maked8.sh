@@ -10,7 +10,7 @@ echo "${blue}${white}What is the name of your project?${reset}"
 read projname
 echo "${blue}${white}Creating ${reset}${green}${white}${projname} ${reset}${blue}${white}Drupal 8 Composer project.${reset}"
 echo "${blue}${white}Take a coffee break, this is going to take several minutes.${reset}"
-composer create-project drupal-composer/drupal-project:8.x-dev ${projname} --stability dev --no-interaction
+composer create-project drupal/recommended-project ${projname} --stability dev --no-interaction
 cd ${projname}
 echo -e "\n${blue}${white}\n\nCloning .lando.yml defaults and prepping for lando start ...\n${reset}"
 git clone git@itsdevrepo.eastus.cloudapp.azure.com:wcrum/wat-faults.git
