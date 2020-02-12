@@ -10,7 +10,7 @@ echo "${blue}${white}What is the name of your project?${reset}"
 read projname
 echo "${blue}${white}Creating ${reset}${green}${white}${projname} ${reset}${blue}${white}Drupal 8 Composer project.${reset}"
 echo "${blue}${white}Take a coffee break, this is going to take several minutes.${reset}"
-composer create-project drupal/recommended-project ${projname} --stability dev --no-interaction
+composer create-project drupal/recommended-project ${projname} -n 
 cd ${projname}
 echo -e "\n${blue}${white}\n\nCloning .lando.yml defaults and prepping for lando start ...\n${reset}"
 git clone git@itsdevrepo.eastus.cloudapp.azure.com:wcrum/wat-faults.git
@@ -21,7 +21,11 @@ echo -e "${blue}${white}\n\nPerforming clean up ...\n${reset}\n"
 rm -Rf wat-faults
 echo -e "\n${blue}${white}\n\nStarting Lando ...\n${reset}"
 lando start
+lando rebuild -y
 echo -e "\n${blue}${white}\n\nPerforming Site Install ...\n${reset}"
+lando composer require --dev drupal/console:@stable
+lando composer require drush/drush
+composer remove drupal/core-project-message
 lando drupal si --force -n standard  \
 --langcode="en"  \
 --db-type="mysql"  \
@@ -47,9 +51,9 @@ lando drush en devel_generate -y
 lando drush en kint -y
 lando drush en webprofiler -y
 echo -e "\n${blue}${white}\n\nInstalling Radix and creating subtheme ...\n${reset}"
-sed -i 's+"drush/drush": "^9.0.0"+"drush/drush": "^8.0.0"+g' composer.json
-composer update 
-composer require drupal/radix
+sed -i 's+"drush/drush": "^10.2"+"drush/drush": "^8.0.0"+g' composer.json
+lando composer update 
+lando composer require drupal/radix
 lando drush en components radix -y
 subtheme="${projname}_subtheme"
 lando drush radix "${subtheme}"
@@ -60,8 +64,8 @@ echo -e "\n${blue}${white}\n\nPerforming automatic audit fix ...\n${reset}"
 lando npm audit fix
 lando npm run dev
 cd ${projpath}/${projname}
-sed -i 's+"drush/drush": "^8.0.0"+"drush/drush": "^9.0.0"+g' composer.json
-composer update 
+sed -i 's+"drush/drush": "^8.0.0"+"drush/drush": "^10.2"+g' composer.json
+lando composer update 
 lando drush cr
 echo -e "\n${blue}${white}Finally done!\nSite Login Information:${reset}"
 echo -e "log in url: ${green}http://${projname}.lndo.site/user${reset}\nusername: ${green}superadmin${reset}\npassword: ${green}admin${reset}"
