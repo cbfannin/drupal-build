@@ -1,18 +1,24 @@
-***WAT TEAM DRUPAL INSTALL SCRIPT***  
+**WAT TEAM DRUPAL INSTALL SCRIPT**  
 *This script allows you to do an all inclusive install of a D8 site that uses WAT team environment defaults with options to include commonly used services, modules, and theme. This script assumes your local environment is using Docker with Lando and that these services are running.*  
 
 **USAGE**  
-If you want a vanilla install of Drupal, simply run the script without appending the options listed below.    
+**Vanilla Install**  *./maked8.sh*  
 
--s standard install includes commonly used modules not included in core  
--d developer install includes commonly used developer modules  
--r radix install includes the radix theme and configures a subtheme  
+**Options**  
+**-s Standard Install** Includes common modules.  
+**-d Developer Install** Includes common developer modules.  
+**-r Radix Install** Includes radix and configures subtheme.  
 
-***PRODUCTION APPS***  
-*This script does not yet configure the default config sync directory or sets up a settings.local.php file.*  
+*You can use any combination of the options to install any and all instances.*  
+e.g. *./maked8.sh -sdr* will install everything needed for a project intended for production.
 
-**Default Config Directory**  
-To do this, locate and edit the *<webroot>/sites/default/settings.php* file by updating the *$config_directories* line to read ***$config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';***  
+**PRODUCTION APPS**  
+*This script does not yet change the default config sync directory, create and reference the settings.local.php file, nor does it configure caching for local development. If any of these are needed, you will need to manually set these up. The following documentation should walk you through how to do these things.*  
 
-**Local Settings**  
-It is best practice to enable the local development override configuration. Locate the same file as above *<webroot>/sites/default/settings.php* and locate and uncomment the code block for loading a local development configuration. This is typically found at the very bottom. You can then copy the $databases code block, create the new settings.local.php file, and paste the $databases code block in this new file.
+Changing the storage location of the sync directory:  
+(Note that we use the outside of webroot method) 
+https://www.drupal.org/docs/8/configuration-management/changing-the-storage-location-of-the-sync-directory  
+
+Configure Your Environment for Theme Development:  
+(This documentation will walk you through setting up settings.local.php and caching.)
+https://drupalize.me/tutorial/configure-your-environment-theme-development?p=2512
