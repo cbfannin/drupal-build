@@ -15,10 +15,8 @@ e.g. *./maked8.sh -sdr* will install everything needed for a project intended fo
 **PRODUCTION APPS**  
 *This script does not yet change the default config sync directory, create and reference the settings.local.php file, nor does it configure caching for local development. If any of these are needed, you will need to manually set these up. The following documentation should walk you through how to do these things.*  
 
-Changing the storage location of the sync directory:  
-(Note that we use the outside of webroot method) 
+**Changing the storage location of the sync directory:** (Note that we use the outside of webroot method)  
 https://www.drupal.org/docs/8/configuration-management/changing-the-storage-location-of-the-sync-directory  
 
-Configure Your Environment for Theme Development:  
-(This documentation will walk you through setting up settings.local.php and caching.)
+**Configure Your Environment for Theme Development:** (This documentation will explain settings.local.php and caching configuration.)  
 https://drupalize.me/tutorial/configure-your-environment-theme-development?p=2512
