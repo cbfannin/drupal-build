@@ -9,7 +9,7 @@ sed -i "s/<project name>/${projname}/g" .lando.yml
 echo -e "\n${blue}${white}\n\nStarting Lando ...\n${reset}"
 lando start
 echo -e "\n${blue}${white}\n\nPerforming Site Install ...\n${reset}"
-lando composer require --dev drupal/console:@stable
+lando composer require drupal/console:~1.0 --prefer-dist --optimize-autoloader
 lando composer require drush/drush
 
 lando drupal si --force -n standard  \
