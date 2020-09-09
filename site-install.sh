@@ -12,13 +12,7 @@ echo -e "\n${blue}${white}\n\nPerforming Site Install ...\n${reset}"
 lando composer require drupal/console:~1.0 --prefer-dist --optimize-autoloader
 lando composer require drush/drush
 
-lando drupal si --force -n standard  \
---langcode="en"  \
---db-type="mysql"  \
---db-host="database"  \
---db-name="drupal8"  \
---db-user="drupal8"  \
---db-pass="drupal8"  \
+lando drush si standard -y --db-url=mysql://drupal8:drupal8@database/${projname} \
 --site-name="${projname}"  \
 --site-mail="admin@example.com"  \
 --account-name="superadmin"  \
