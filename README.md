@@ -1,8 +1,8 @@
-**WAT TEAM DRUPAL INSTALL SCRIPT**  
-*This script allows you to do an all inclusive install of a D8 site that uses WAT team environment defaults with options to include commonly used services, modules, and theme. This script assumes your local environment is using Docker with Lando and that these services are running.*  
+**WAT TEAM DRUPAL BUILD SCRIPT**  
+*This script allows you to do an all inclusive install of a Drupal site that uses WAT team environment defaults with options to include commonly used services, modules, and theme. This script assumes your local environment is using Docker with Lando and that these services are running.*  
 
 **USAGE**  
-**Vanilla Install**  *./maked8.sh*  
+**Vanilla Install**  *./buildit.sh*  
 
 **Options**  
 **-s Standard Install** Includes common modules.  
@@ -10,7 +10,7 @@
 **-r Radix Install** Includes radix and configures subtheme.  
 
 *You can use any combination of the options to install any and all instances.*  
-e.g. *./maked8.sh -sdr* will install everything needed for a project intended for production.
+e.g. *./buildit.sh -sdr* to install everything.
 
 **PRODUCTION APPS**  
 *This script does not yet change the default config sync directory, create and reference the settings.local.php file, nor does it configure caching for local development. If any of these are needed, you will need to manually set these up. The following documentation should walk you through how to do these things.*  
