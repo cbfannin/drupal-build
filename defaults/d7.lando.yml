@@ -1,0 +1,16 @@
+name: <project name>
+recipe: drupal7
+config:
+  database: mariadb:10.2
+  via: nginx
+  php: '7.2'
+  drush: ^8.2
+#  xdebug: true
+proxy:
+  mailhog:
+    - mail.chattstate14.lndo.site
+services:
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver

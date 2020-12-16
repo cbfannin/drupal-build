@@ -1,0 +1,8 @@
+name: <project name> 
+recipe: wordpress
+config:
+  php: 7.2
+  via: nginx
+  webroot: web
+  database: mariadb
+  xdebug: true
