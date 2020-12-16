@@ -1,5 +1,8 @@
 **WAT TEAM DRUPAL BUILD SCRIPT**  
-*This script allows you to do an all inclusive install of a Drupal site that uses WAT team environment defaults with options to include commonly used services, modules, and theme. This script assumes your local environment is using Docker with Lando and that these services are running.*  
+*This script allows you to do an all inclusive install of a Drupal site that uses WAT team environment defaults with options to include commonly used services, modules, and theme.*  
+
+**PREREQUISITES**
+Docker and Lando are required and their services should be running. If you do not have these installed, start with Lando documentation and it will guide you through the process. https://docs.lando.dev/basics/installation.html
 
 **USAGE**  
 **Vanilla Install**  *./buildit.sh*  
