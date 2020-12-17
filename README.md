@@ -7,8 +7,10 @@
 Docker and Lando are required and their services should be running. If you do not have these installed, start with Lando documentation and it will guide you through the process. https://docs.lando.dev/basics/installation.html
 
 # USAGE
-1 Clone this repo to ~/bin/drupal-build.
-1 Run the following command from the drupal-build directory.<br>
+1. Clone this repo to ~/bin/drupal-build.
+2. Run the following command with desired options from the drupal-build directory.
+
+## Command and Options
 **Vanilla Install**  `./buildit.sh`  
 
 ## Options  
