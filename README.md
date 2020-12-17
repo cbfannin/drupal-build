@@ -5,7 +5,7 @@
 Docker and Lando are required and their services should be running. If you do not have these installed, start with Lando documentation and it will guide you through the process. https://docs.lando.dev/basics/installation.html
 
 **USAGE**  
-**Vanilla Install**  *./buildit.sh*  
+**Vanilla Install**  `./buildit.sh`  
 
 **Options**  
 **-s Standard Install** Includes common modules.  
@@ -13,7 +13,9 @@ Docker and Lando are required and their services should be running. If you do no
 **-r Radix Install** Includes radix and configures subtheme.  
 
 *You can use any combination of the options to install any and all instances.*  
-e.g. *./buildit.sh -sdr* to install everything.
+examples:
+`./buildit.sh -sdr` to install everything.
+`./buildit.sh -s` to install just common modules.
 
 **PRODUCTION APPS**  
 *This script does not yet change the default config sync directory, create and reference the settings.local.php file, nor does it configure caching for local development. If any of these are needed, you will need to manually set these up. The following documentation should walk you through how to do these things.*  
