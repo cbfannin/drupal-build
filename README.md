@@ -11,7 +11,7 @@ Docker and Lando are required and their services should be running. If you do no
 
 ## Options  
 **-s Standard Install** Includes common modules.<br> 
-**-d Developer Install** Includes common developer modules.<br>  
+**-d Developer Install** Includes common developer modules.<br>
 **-t Theme Install** Includes theme.  
 
 *You can use any combination of the options to install any and all instances.*  
