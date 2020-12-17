@@ -13,8 +13,8 @@ Docker and Lando are required and their services should be running. If you do no
 **-r Radix Install** Includes radix and configures subtheme.  
 
 *You can use any combination of the options to install any and all instances.*  
-examples:
-`./buildit.sh -sdr` to install everything.
+examples:<br>
+`./buildit.sh -sdr` to install everything.<br>
 `./buildit.sh -s` to install just common modules.
 
 **APPS FOR PRODUCTION**  
