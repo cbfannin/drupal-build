@@ -10,11 +10,11 @@ Docker and Lando are required and their services should be running. If you do no
 **Options**  
 **-s Standard Install** Includes common modules.  
 **-d Developer Install** Includes common developer modules.  
-**-r Radix Install** Includes radix and configures subtheme.  
+**-t Theme Install** Includes theme.  
 
 *You can use any combination of the options to install any and all instances.*  
 examples:<br>
-`./buildit.sh -sdr` to install everything.<br>
+`./buildit.sh -sdt` to install everything.<br>
 `./buildit.sh -s` to install just common modules.
 
 **APPS FOR PRODUCTION**  
