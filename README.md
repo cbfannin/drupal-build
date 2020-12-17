@@ -17,7 +17,7 @@ examples:
 `./buildit.sh -sdr` to install everything.
 `./buildit.sh -s` to install just common modules.
 
-**PRODUCTION APPS**  
+**APPS FOR PRODUCTION**  
 *This script does not yet change the default config sync directory, create and reference the settings.local.php file, nor does it configure caching for local development. If any of these are needed, you will need to manually set these up. The following documentation should walk you through how to do these things.*  
 
 **Changing the storage location of the sync directory:** (Note that we use the outside of webroot method)  
