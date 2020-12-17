@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "\n${blue}${white}\n\nInstalling Radix and creating subtheme ...\n${reset}"
+echo -e "\n${blue}${white}\n\nInstalling Theme ...\n${reset}"
 sed -i 's+"drush/drush": "^10.3"+"drush/drush": "^8.0.0"+g' composer.json
 lando composer update
 lando composer require drupal/components drupal/radix

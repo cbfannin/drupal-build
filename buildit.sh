@@ -26,7 +26,7 @@ s) . ${makedir}/common-modules.sh;;
 # Require Developer modules.
 d) . ${makedir}/developer-modules.sh;;
 # Install Radix and create subtheme.
-r) . ${makedir}/radix-install.sh;;
+r) . ${makedir}/theme-install.sh;;
 # Invalid Option
 \?) echo "Usage: cmd [-s] [-d] [-r]";;
 esac
