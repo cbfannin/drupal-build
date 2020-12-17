@@ -7,14 +7,14 @@ Docker and Lando are required and their services should be running. If you do no
 **USAGE**  
 **Vanilla Install**  `./buildit.sh`  
 
-**Options**  
+***Options***  
 **-s Standard Install** Includes common modules.  
 **-d Developer Install** Includes common developer modules.  
 **-t Theme Install** Includes theme.  
 
 *You can use any combination of the options to install any and all instances.*  
 
-**EXAMPLES**
+***Examples***
 `./buildit.sh -sdt` to install everything.
 `./buildit.sh -s` to install just common modules.
 
