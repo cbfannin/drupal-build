@@ -15,7 +15,7 @@ Docker and Lando are required and their services should be running. If you do no
 *You can use any combination of the options to install any and all instances.*  
 
 **EXAMPLES**
-`./buildit.sh -sdt` to install everything.<br>
+`./buildit.sh -sdt` to install everything.
 `./buildit.sh -s` to install just common modules.
 
 **APPS FOR PRODUCTION**  
