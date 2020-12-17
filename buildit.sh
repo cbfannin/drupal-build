@@ -18,7 +18,7 @@ export projpath
 # Perform a Drupal Site install.
 . ${makedir}/site-install.sh
 
-while getopts ":sdr" opt; do
+while getopts ":sdt" opt; do
 case "${opt}"
 in
 # Require Common modules.
@@ -26,9 +26,9 @@ s) . ${makedir}/common-modules.sh;;
 # Require Developer modules.
 d) . ${makedir}/developer-modules.sh;;
 # Install Radix and create subtheme.
-r) . ${makedir}/theme-install.sh;;
+t) . ${makedir}/theme-install.sh;;
 # Invalid Option
-\?) echo "Usage: cmd [-s] [-d] [-r]";;
+\?) echo "Usage: cmd [-s] [-d] [-t]";;
 esac
 done
 
