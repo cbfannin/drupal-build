@@ -25,7 +25,7 @@ in
 s) . ${makedir}/common-modules.sh;;
 # Require Developer modules.
 d) . ${makedir}/developer-modules.sh;;
-# Install Radix and create subtheme.
+# Install Theme.
 t) . ${makedir}/theme-install.sh;;
 # Invalid Option
 \?) echo "Usage: cmd [-s] [-d] [-t]";;
