@@ -1,0 +1,27 @@
+name: <project name>
+recipe: drupal8
+config:
+  webroot: web
+  php: 7.3
+  via: nginx
+  database: mariadb
+  xdebug: true
+  drupal: true
+services:
+  appserver:
+    build:
+      - composer install
+  node:
+    type: node
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+tooling:
+  npm:
+    service: node
+  node:
+    service: node
+proxy:
+  mailhog:
+    - mail.<project name>.lndo.site
