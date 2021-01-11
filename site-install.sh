@@ -3,7 +3,7 @@
 cd ${projpath}/${projname}
 echo -e "\n${blue}${white}\n\nCopying team dot files for project ...\n${reset}"
 cp ~/bin/drupal-build/defaults/.lando.yml .
-cp ~/bin/drupal-build/defaults/.gitignore .
+cp ~/bin/drupal-build/defaults/wat.gitignore ./.gitignore
 sed -i "s/<project name>/${projname}/g" .lando.yml
 echo -e "\n${blue}${white}\n\nStarting Lando ...\n${reset}"
 lando start
