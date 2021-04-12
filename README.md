@@ -14,15 +14,16 @@ Docker and Lando are required and their services should be running. If you do no
 **Vanilla Install**  `./buildit.sh`  
 
 ### Options  
-**-s Standard Install** Includes common modules.<br> 
 **-d Developer Install** Includes common developer modules.<br>
-**-t Theme Install** Includes theme.  
+**-t Theme Install** Includes theme.
 
-*You can use any combination of the options to install any and all instances.*  
+*Either option used will also install common modules.*
+*You can use either option or both options.*  
 
 ***Examples***<br>
-`./buildit.sh -sdt` to install everything.<br>
-`./buildit.sh -s` to install just common modules.
+`./buildit.sh -d` to install developer modules.<br>
+`./buildit.sh -t` to install theme.<br>
+`./buildit.sh -dt` to install developer modules and theme.
 
 # READ THIS IF YOUR BUILD IS MEANT FOR PRODUCTION  
 *This script does not yet change the default config sync directory, create and reference the settings.local.php file, nor does it configure caching for local development. If any of these are needed, you will need to manually set these up. The following documentation should walk you through how to do these things.*  
