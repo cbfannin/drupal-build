@@ -1,5 +1,23 @@
+#!/bin/bash
+
+# Functions
+isInstalled() {
+    # check if command exists and fail otherwise
+    command -v "$1" >/dev/null 2>&1
+    if [[ $? -ne 0 ]]; then
+        echo "${white}${red} $1 is not installed. ${reset}${white}${red}"
+        exit 1
+    fi
+}
+
 # Check for required Applications.
-type composer >/dev/null 2>&1 || { echo >&2 "${white}${red}Composer is not installed. ${reset}${white}${red}"; exit 1; }
-type docker >/dev/null 2>&1 || { echo >&2 "${white}${red}Docker is not installed. ${reset}${white}${red}"; exit 1; }
-type lando >/dev/null 2>&1 || { echo >&2 "${white}${red}lando is not installed. ${reset}${white}${red}"; exit 1; }
-type git >/dev/null 2>&1 || { echo >&2 "${white}${red}git is not installed. ${reset}${white}${red}"; exit 1; }
+for app in "php" "composer" "git" "docker" "lando" "curl"; do
+    isInstalled "${app}"
+done
+
+if (! systemctl is-active --quiet docker) then
+   echo "${white}${red} Docker is not running. Starting Docker.. ${reset}${white}${red}"
+   sudo systemctl start docker
+fi
+
+echo "${white}${blue} Prerequisites passed. ${reset}${white}${blue}"
