@@ -9,6 +9,7 @@ isInstalled() {
         exit 1
     fi
 }
+echo "${white}${blue} Checking Prerequisites... ${reset}${white}${blue}"
 
 # Check for required Applications.
 for app in "php" "composer" "git" "docker" "lando" "curl"; do
@@ -21,4 +22,4 @@ if (! systemctl is-active --quiet docker) then
    sudo systemctl start docker
 fi
 
-echo "${white}${blue} Prerequisites passed. ${reset}${white}${blue}"
+echo "${white}${blue} Prerequisites Completed. ${reset}${white}${blue}"
