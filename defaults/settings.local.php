@@ -1,6 +1,5 @@
 <?php
 
-$settings['config_sync_directory'] = '../config/sync';
 $databases['default']['default'] = [
   'database' => 'drupal8',
   'username' => 'drupal8',
