@@ -16,7 +16,7 @@ for app in "php" "composer" "git" "docker" "lando" "curl"; do
     isInstalled "${app}"
 done
 
-# Check if Docker is currently running. Start it if not.
+# Check if Docker is currently running. If not, start it.
 if (! systemctl is-active --quiet docker) then
    echo "${white}${red} Docker is not running. Starting Docker.. ${reset}${white}${red}"
    sudo systemctl start docker
