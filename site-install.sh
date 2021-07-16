@@ -10,7 +10,7 @@ lando start
 echo -e "\n${blue}${white}\n\nPerforming Site Install ...\n${reset}"
 lando composer require drush/drush
 
-lando drush si standard -y --db-url=mysql://drupal8:drupal8@database/drupal8 \
+lando drush si standard -y --db-url=mysql://drupal9:drupal9@database/drupal9 \
 --site-name="${projname}"  \
 --site-mail="admin@example.com"  \
 --account-name="superadmin"  \
