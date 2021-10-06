@@ -3,7 +3,7 @@
 cd ${projpath}/${projname}
 echo -e "\n${blue}${white}\n\nCopying team dot files for project ...\n${reset}"
 cp ${makedir}/defaults/.lando.yml .
-cp ${makedir}/defaults/wat.gitignore ./.gitignore
+#cp ${makedir}/defaults/wat.gitignore ./.gitignore
 sed -i "s/<project name>/${projname}/g" .lando.yml
 echo -e "\n${blue}${white}\n\nStarting Lando ...\n${reset}"
 lando start
