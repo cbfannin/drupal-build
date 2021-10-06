@@ -290,7 +290,7 @@ $settings['config_sync_directory'] = '../config/sync';
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'sKjmE11K5dmfXgzQuRiGqGH0zIzUfoDqys-eDugF_464Ncqdl9UqwoAbYXQmkfZsLvUyPIFgxA';
+$settings['hash_salt'] = 'watdev';
 
 /**
  * Deployment identifier.
@@ -544,7 +544,7 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-$settings['file_private_path'] = '/app/private';
+$settings['file_private_path'] = '/app/web/sites/default/private';
 
 /**
  * Temporary file path:
