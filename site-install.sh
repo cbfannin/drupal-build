@@ -16,3 +16,10 @@ lando drush si standard -y --db-url=mysql://drupal9:drupal9@database/drupal9 \
 --account-name="superadmin"  \
 --account-mail="admin@example.com"  \
 --account-pass="admin"
+
+chmod u+w ${projpath}/${projname}/web/sites/default/settings.php
+chmod u+w ${projpath}/${projname}/web/sites/default
+cp ${makedir}/defaults/settings.php ${projpath}/${projname}/web/sites/default
+cp ${makedir}/defaults/settings.local.php ${projpath}/${projname}/web/sites/default
+chmod u-w ${projpath}/${projname}/web/sites/default/settings.php
+chmod u-w ${projpath}/${projname}/web/sites/default

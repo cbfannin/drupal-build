@@ -1,10 +1,7 @@
 <?php
 
 $settings['config_sync_directory'] = '../config/sync';
-$settings['hash_salt'] = 'watdev';
 $settings['update_free_access'] = FALSE;
-$settings['file_public_path'] = 'sites/default/files';
-$settings['file_private_path'] = '/app/web/sites/default/private';
 $settings['file_temp_path'] = '/tmp';
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 $settings['file_scan_ignore_directories'] = [
