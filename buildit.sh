@@ -21,7 +21,7 @@ export projpath
 # Perform a Drupal Site install.
 . ${makedir}/site-install.sh
 
-while getopts ":sdt" opt; do
+while getopts ":dt" opt; do
 case "${opt}"
 in
 # Require Developer modules.
@@ -29,7 +29,7 @@ d) . ${makedir}/developer-modules.sh;;
 # Install Theme.
 t) . ${makedir}/theme-install.sh;;
 # Invalid Option
-\?) echo "Usage: cmd [-s] [-d] [-t]";;
+\?) echo "Usage: cmd [-d] [-t]";;
 esac
 # Require Common modules.
 . ${makedir}/common-modules.sh
