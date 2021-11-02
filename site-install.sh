@@ -23,3 +23,4 @@ cp ${makedir}/defaults/settings.php ${projpath}/${projname}/web/sites/default
 cp ${makedir}/defaults/settings.local.php ${projpath}/${projname}/web/sites/default
 chmod u-w ${projpath}/${projname}/web/sites/default/settings.php
 chmod u-w ${projpath}/${projname}/web/sites/default
+lando composer config repositories.11 '{"type": "composer", "url": "https://__token__:zwCWomyR2DktDhWC2UgT@watlab.eastus.cloudapp.azure.com/api/v4/group/11/-/packages/composer/packages.json"}'
