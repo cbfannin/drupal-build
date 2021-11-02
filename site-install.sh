@@ -16,3 +16,5 @@ lando drush si standard -y --db-url=mysql://drupal9:drupal9@database/drupal9 \
 --account-name="superadmin"  \
 --account-mail="admin@example.com"  \
 --account-pass="admin"
+
+lando composer config repositories.11 '{"type": "composer", "url": "https://__token__:zwCWomyR2DktDhWC2UgT@watlab.eastus.cloudapp.azure.com/api/v4/group/11/-/packages/composer/packages.json"}'

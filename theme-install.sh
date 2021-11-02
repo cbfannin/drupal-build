@@ -2,13 +2,12 @@
 
 echo -e "\n${blue}${white}\n\nInstalling Bootstrap4 Theme ...\n${reset}"
 lando composer require \
-    drupal/bootstrap4:^2.1.13 \
+    drupal/bootstrap4
     drupal/fontawesome \
     drupal/fontawesome_menu_icons \
 
 echo -e "\n${blue}${white}\n\nInstalling Chatt State Bootstrap4 Subtheme ...\n${reset}"
-mkdir web/themes/custom
-git clone git@watlab.eastus.cloudapp.azure.com:jbugiada/cscc_theme.git web/themes/custom/cscc_theme
+lando composer require wat/cscc_theme
 
 echo -e "\n${blue}${white}\n\nEnabling required modules ...\n${reset}"
 lando drush en fontawesome \
