@@ -9,7 +9,7 @@ reset="$(tput sgr0)"
 
 # Variables
 makedir=$(pwd)
-projpath=/var/www
+projpath=/var/www/html
 export projpath
 
 # Check for required applications.
