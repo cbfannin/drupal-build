@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e "\n${blue}${white}\n\nDownloading developer modules ...\n${reset}"
-lando composer require \
+lando composer require --dev \
 	drupal/devel \
 	kint-php/kint
 
